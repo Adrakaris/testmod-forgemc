@@ -2,7 +2,12 @@
   "block.testmod.glorious_fabric_block": "Glorious Fabric Block",
   
   "item.testmod.glorious_fabric": "Glorious Fabric",
+  "item.testmod.inglorious_fabric": "Inglorious Fabric",
   "item.testmod.hammer_sickle": "Hammer and Sickle",
+  "item.testmod.glorious_hat": "Glorious Hat",
+  "item.testmod.glorious_chestplate": "Glorious Chestplate",
+  "item.testmod.glorious_pants": "Glorious Pants",
+  "item.testmod.glorious_boots": "Glorious Boots",
 
   "_comment": "Creative Tabs",
   "itemGroup.testmod": "Test Mod Items"

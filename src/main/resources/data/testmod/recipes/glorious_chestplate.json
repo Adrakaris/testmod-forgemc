@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "RGR",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "testmod:glorious_fabric_block"
+    },
+    "R": {
+      "item": "testmod:glorious_fabric"
+    },
+    "G": {
+      "item": "minecraft:gold_block"
+    }
+  },
+  "result": {
+    "item": "testmod:glorious_chestplate",
+    "count": 1
+  }
+}

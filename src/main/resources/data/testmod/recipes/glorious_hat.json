@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "RgR"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:green_wool"
+    },
+    "R": {
+      "item": "testmod:glorious_fabric"
+    },
+    "g": {
+      "tag": "forge:ingots/gold"
+    }
+  },
+  "result": {
+    "item": "testmod:glorious_hat",
+    "count": 1
+  }
+}

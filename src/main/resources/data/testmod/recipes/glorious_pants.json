@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "R R",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "item": "testmod:glorious_fabric_block"
+    },
+    "R": {
+      "item": "testmod:glorious_fabric"
+    }
+  },
+  "result": {
+    "item": "testmod:glorious_pants",
+    "count": 1
+  }
+}

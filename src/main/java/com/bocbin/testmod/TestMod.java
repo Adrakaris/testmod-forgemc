@@ -2,16 +2,18 @@ package com.bocbin.testmod;
 
 import com.bocbin.testmod.blocks.GloriousFabricBlock;
 import com.bocbin.testmod.blocks.ModBlocks;
+import com.bocbin.testmod.constructors.GloriousArmour;
 import com.bocbin.testmod.items.GloriousFabric;
 import com.bocbin.testmod.items.HammerSickle;
+import com.bocbin.testmod.items.IngloriousFabric;
 import com.bocbin.testmod.setup.ClientProxy;
 import com.bocbin.testmod.setup.IProxy;
 import com.bocbin.testmod.setup.ModSetup;
 import com.bocbin.testmod.setup.ServerProxy;
 import net.minecraft.block.Block;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -62,9 +64,15 @@ public class TestMod {
         public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
             // register a new item here
             itemRegistryEvent.getRegistry().register(new GloriousFabric());
+            itemRegistryEvent.getRegistry().register(new IngloriousFabric());
 
-            // register new tools
+            // register new tools and stuff
             itemRegistryEvent.getRegistry().register(new HammerSickle());
+            // these are built off an armour constructor in constructors, and so are not held in ModItems
+            itemRegistryEvent.getRegistry().register(new GloriousArmour(EquipmentSlotType.HEAD).setRegistryName("glorious_hat"));
+            itemRegistryEvent.getRegistry().register(new GloriousArmour(EquipmentSlotType.CHEST).setRegistryName("glorious_chestplate"));
+            itemRegistryEvent.getRegistry().register(new GloriousArmour(EquipmentSlotType.LEGS).setRegistryName("glorious_pants"));
+            itemRegistryEvent.getRegistry().register(new GloriousArmour(EquipmentSlotType.FEET).setRegistryName("glorious_boots"));
 
             // register new blockitems
             itemRegistryEvent.getRegistry().register(new BlockItem(ModBlocks.GLORIOUSFABRICBLOCK, new Item.Properties().group(setup.itemGroup)).setRegistryName("glorious_fabric_block"));

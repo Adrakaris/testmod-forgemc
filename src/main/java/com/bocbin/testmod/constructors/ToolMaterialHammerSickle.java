@@ -1,10 +1,8 @@
-package com.bocbin.testmod.materials;
+package com.bocbin.testmod.constructors;
 
 import com.bocbin.testmod.items.ModItems;
 import net.minecraft.item.IItemTier;
-import net.minecraft.item.Item;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.IItemProvider;
 
 public class ToolMaterialHammerSickle implements IItemTier {
     @Override

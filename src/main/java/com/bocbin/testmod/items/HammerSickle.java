@@ -2,16 +2,14 @@ package com.bocbin.testmod.items;
 
 import com.bocbin.testmod.TestMod;
 import com.bocbin.testmod.blocks.ModBlocks;
-import com.bocbin.testmod.materials.ToolMaterialHammerSickle;
+import com.bocbin.testmod.constructors.ToolMaterialHammerSickle;
 import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
-import net.minecraftforge.common.ToolType;
 
 import java.util.Set;
 
