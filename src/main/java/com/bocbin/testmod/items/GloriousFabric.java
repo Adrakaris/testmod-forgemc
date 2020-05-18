@@ -10,6 +10,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 
+@SuppressWarnings("ALL")
 public class GloriousFabric extends Item {
     public GloriousFabric() {
         super(new Item.Properties()

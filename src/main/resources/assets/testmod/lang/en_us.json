@@ -1,7 +1,8 @@
 {
   "block.testmod.glorious_fabric_block": "Glorious Fabric Block",
-
+  
   "item.testmod.glorious_fabric": "Glorious Fabric",
+  "item.testmod.hammer_sickle": "Hammer and Sickle",
 
   "_comment": "Creative Tabs",
   "itemGroup.testmod": "Test Mod Items"

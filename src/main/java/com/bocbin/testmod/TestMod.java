@@ -3,6 +3,7 @@ package com.bocbin.testmod;
 import com.bocbin.testmod.blocks.GloriousFabricBlock;
 import com.bocbin.testmod.blocks.ModBlocks;
 import com.bocbin.testmod.items.GloriousFabric;
+import com.bocbin.testmod.items.HammerSickle;
 import com.bocbin.testmod.setup.ClientProxy;
 import com.bocbin.testmod.setup.IProxy;
 import com.bocbin.testmod.setup.ModSetup;
@@ -61,6 +62,9 @@ public class TestMod {
         public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
             // register a new item here
             itemRegistryEvent.getRegistry().register(new GloriousFabric());
+
+            // register new tools
+            itemRegistryEvent.getRegistry().register(new HammerSickle());
 
             // register new blockitems
             itemRegistryEvent.getRegistry().register(new BlockItem(ModBlocks.GLORIOUSFABRICBLOCK, new Item.Properties().group(setup.itemGroup)).setRegistryName("glorious_fabric_block"));

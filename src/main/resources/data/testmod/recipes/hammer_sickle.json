@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#g ",
+    "O/g",
+    "/g/"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:gold_block"
+    },
+    "g": {
+      "tag": "forge:ingots/gold"
+    },
+    "O": {
+      "item": "testmod:glorious_fabric"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "testmod:hammer_sickle",
+    "count": 1
+  }
+}
