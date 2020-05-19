@@ -3,6 +3,7 @@ package com.bocbin.testmod;
 import com.bocbin.testmod.blocks.GloriousFabricBlock;
 import com.bocbin.testmod.blocks.ModBlocks;
 import com.bocbin.testmod.constructors.GloriousArmour;
+import com.bocbin.testmod.items.Borscht;
 import com.bocbin.testmod.items.GloriousFabric;
 import com.bocbin.testmod.items.HammerSickle;
 import com.bocbin.testmod.items.IngloriousFabric;
@@ -65,6 +66,7 @@ public class TestMod {
             // register a new item here
             itemRegistryEvent.getRegistry().register(new GloriousFabric());
             itemRegistryEvent.getRegistry().register(new IngloriousFabric());
+            itemRegistryEvent.getRegistry().register(new Borscht());
 
             // register new tools and stuff
             itemRegistryEvent.getRegistry().register(new HammerSickle());

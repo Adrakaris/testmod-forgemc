@@ -7,6 +7,8 @@ public class ModItems {
     public static GloriousFabric GLORIOUSFABRIC;
     @ObjectHolder("testmod:inglorious_fabric")
     public static IngloriousFabric INGLORIOUSFABRIC;
+    @ObjectHolder("testmod:borscht")
+    public static Borscht BORSCHT;
 
     @ObjectHolder("testmod:hammer_sickle")
     public static HammerSickle HAMMERSICKLE;
