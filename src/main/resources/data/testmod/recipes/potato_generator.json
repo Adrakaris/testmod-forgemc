@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iRi",
+    "iPi",
+    "BFB"
+  ],
+  "key": {
+    "i": {
+      "item": "forge:ingots/iron"
+    },
+    "R": {
+      "item": "testmod:glorious_fabric"
+    },
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "B": {
+      "item": "minecraft:redstone"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result": {
+    "item": "testmod:potato_generator",
+    "count": 1
+  }
+}

@@ -2,6 +2,8 @@ package com.bocbin.testmod;
 
 import com.bocbin.testmod.blocks.GloriousFabricBlock;
 import com.bocbin.testmod.blocks.ModBlocks;
+import com.bocbin.testmod.blocks.PotatoGenerator;
+import com.bocbin.testmod.blocks.PotatoGeneratorTile;
 import com.bocbin.testmod.constructors.GloriousArmour;
 import com.bocbin.testmod.items.Borscht;
 import com.bocbin.testmod.items.GloriousFabric;
@@ -15,6 +17,7 @@ import net.minecraft.block.Block;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -57,6 +60,7 @@ public class TestMod {
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
             // register a new block here
             blockRegistryEvent.getRegistry().register(new GloriousFabricBlock());
+            blockRegistryEvent.getRegistry().register(new PotatoGenerator());
 
             LOGGER.info("Block Registering Yes");
         }
@@ -78,8 +82,16 @@ public class TestMod {
 
             // register new blockitems
             itemRegistryEvent.getRegistry().register(new BlockItem(ModBlocks.GLORIOUSFABRICBLOCK, new Item.Properties().group(setup.itemGroup)).setRegistryName("glorious_fabric_block"));
+            itemRegistryEvent.getRegistry().register(new BlockItem(ModBlocks.POTATOGENERATOR, new Item.Properties().group(setup.itemGroup)).setRegistryName("potato_generator"));
 
             LOGGER.info("Item Registering Yes");
+        }
+
+        @SubscribeEvent
+        public static void onTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> tileRegistryEvent) {
+            tileRegistryEvent.getRegistry().register(TileEntityType.Builder.create(PotatoGeneratorTile::new, ModBlocks.POTATOGENERATOR).build(null).setRegistryName("potato_generator"));
+
+            LOGGER.info("Tile Entity Registering Yes");
         }
     }
 }

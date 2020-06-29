@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=north": {"model": "testmod:block/potato_generator"},
+    "facing=south": {"model": "testmod:block/potato_generator", "y":  180},
+    "facing=west": {"model": "testmod:block/potato_generator", "y":  270},
+    "facing=east": {"model": "testmod:block/potato_generator", "y":  90},
+    "facing=up": {"model": "testmod:block/potato_generator", "x":  -90},
+    "facing=down": {"model": "testmod:block/potato_generator", "x":  90}
+  }
+}
