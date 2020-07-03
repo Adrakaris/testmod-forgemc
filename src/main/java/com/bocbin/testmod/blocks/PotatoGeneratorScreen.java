@@ -29,8 +29,13 @@ public class PotatoGeneratorScreen extends ContainerScreen<PotatoGeneratorContai
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        this.font.drawString(this.title.getFormattedText(), 8.0F, 6.0F, 4210752);
+        // Potato Generator
+        this.font.drawString(this.title.getFormattedText(), 8.0F, 6.0F, 4210752); // #404040 = 4210752
+        // Inventory
         this.font.drawString(this.playerInventory.getDisplayName().getFormattedText(), 8.0F, (float)(this.ySize - 96 + 2), 4210752);
+        // Energy Value
+        this.font.drawString("Energy:", 8.0F, 16.0F, 0x404040);
+        this.font.drawString(container.getEnergy() + "RF", 8.0F, 26.0F, 0x404040);
     }
 
     @Override

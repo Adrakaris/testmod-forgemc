@@ -45,5 +45,5 @@ public class HammerSickle extends PickaxeItem {
             Blocks.LIME_WOOL, Blocks.PINK_WOOL, Blocks.GRAY_WOOL, Blocks.LIGHT_GRAY_WOOL, Blocks.CYAN_WOOL,
             Blocks.PURPLE_WOOL, Blocks.BLUE_WOOL, Blocks.BROWN_WOOL, Blocks.GREEN_WOOL, Blocks.RED_WOOL,
             Blocks.BLACK_WOOL, Blocks.ACACIA_LEAVES, Blocks.BIRCH_LEAVES, Blocks.DARK_OAK_LEAVES, Blocks.JUNGLE_LEAVES,
-            Blocks.OAK_LEAVES, Blocks.SPRUCE_LEAVES, ModBlocks.GLORIOUSFABRICBLOCK);
+            Blocks.OAK_LEAVES, Blocks.SPRUCE_LEAVES, ModBlocks.GLORIOUSFABRICBLOCK, ModBlocks.POTATOGENERATOR);
 }

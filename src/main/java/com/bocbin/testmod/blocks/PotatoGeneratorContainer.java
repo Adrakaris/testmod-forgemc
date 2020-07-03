@@ -1,12 +1,20 @@
 package com.bocbin.testmod.blocks;
 
+import com.bocbin.testmod.tools.CustomEnergyStorage;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
+import net.minecraft.inventory.container.Slot;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IWorldPosCallable;
+import net.minecraft.util.IntReferenceHolder;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.energy.CapabilityEnergy;
+import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -33,12 +41,72 @@ public class PotatoGeneratorContainer extends Container {
                     addSlot(new SlotItemHandler(h, 0, 80, 34));
                 });
 
-        layoutPlayerInventorySlots(8, 84);  // mayhaps 10, 70?
+        layoutPlayerInventorySlots(8, 84);
+
+        // to keep track of energy as a number
+        trackInt(new IntReferenceHolder() {
+            @Override
+            public int get() {
+                return getEnergy();
+            }
+
+            @Override
+            public void set(int value) {
+                tileEntity.getCapability(CapabilityEnergy.ENERGY).ifPresent(h -> ((CustomEnergyStorage)h).setEnergy(value));
+            }
+        });
+    }
+
+    public int getEnergy() {
+        return tileEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
     }
 
     @Override
     public boolean canInteractWith(PlayerEntity playerIn) {
         return isWithinUsableDistance(IWorldPosCallable.of(tileEntity.getWorld(), tileEntity.getPos()), playerEntity, ModBlocks.POTATOGENERATOR);
+    }
+
+    /* THIS IS ESSENTIAL SUCH THAT SHIFT-CLICKING DOES NOT CRASH THE GAME */
+    @Override
+    public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {
+        ItemStack itemStack = ItemStack.EMPTY;
+        Slot slot = this.inventorySlots.get(index);
+        if (slot != null && slot.getHasStack()) {
+            ItemStack stack = slot.getStack();
+            itemStack = stack.copy();
+            if (index == 0) {
+                if (!this.mergeItemStack(stack, 1, 37, true)) {  // 1 and 37 are player inventory slots
+                    return ItemStack.EMPTY;
+                }
+                slot.onSlotChange(stack, itemStack);
+            } else {
+                if (stack.getItem() == Items.POTATO || stack.getItem() == Items.BAKED_POTATO || stack.getItem() == Items.POISONOUS_POTATO) {
+                    if (!this.mergeItemStack(stack, 0, 1, true)) {  // [0, 1) are the item slot we want
+                        return ItemStack.EMPTY;
+                    }
+                } else if (index < 28) {
+                    if (!this.mergeItemStack(stack, 28, 37, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (index < 37 && !this.mergeItemStack(stack, 1, 28, false)) {
+                    return ItemStack.EMPTY;
+                }
+            }
+
+            if (stack.isEmpty()) {
+                slot.putStack(ItemStack.EMPTY);
+            } else {
+                slot.onSlotChanged();
+            }
+
+            if (stack.getCount() == itemStack.getCount()) {
+                return ItemStack.EMPTY;
+            }
+
+            slot.onTake(playerIn, stack);
+        }
+
+        return itemStack;
     }
 
     // adding slots and stuff
