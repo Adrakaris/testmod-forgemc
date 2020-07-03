@@ -1,5 +1,6 @@
 package com.bocbin.testmod.blocks;
 
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -12,4 +13,6 @@ public class ModBlocks {
     public static PotatoGenerator POTATOGENERATOR;
     @ObjectHolder("testmod:potato_generator")
     public static TileEntityType<PotatoGeneratorTile> POTATOGENERATOR_TILE;  // defines tile entity type
+    @ObjectHolder("testmod:potato_generator")
+    public static ContainerType<PotatoGeneratorContainer> POTATOGENERATOR_CONTAINER;
 }

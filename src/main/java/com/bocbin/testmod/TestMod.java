@@ -1,9 +1,6 @@
 package com.bocbin.testmod;
 
-import com.bocbin.testmod.blocks.GloriousFabricBlock;
-import com.bocbin.testmod.blocks.ModBlocks;
-import com.bocbin.testmod.blocks.PotatoGenerator;
-import com.bocbin.testmod.blocks.PotatoGeneratorTile;
+import com.bocbin.testmod.blocks.*;
 import com.bocbin.testmod.constructors.GloriousArmour;
 import com.bocbin.testmod.items.Borscht;
 import com.bocbin.testmod.items.GloriousFabric;
@@ -15,9 +12,12 @@ import com.bocbin.testmod.setup.ModSetup;
 import com.bocbin.testmod.setup.ServerProxy;
 import net.minecraft.block.Block;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -30,6 +30,8 @@ import org.apache.logging.log4j.Logger;
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("testmod")
 public class TestMod {
+
+    public static final String MODID = "testmod";
 
     // get a proxy
     // weird scary lambdas that intellij complains about
@@ -92,6 +94,14 @@ public class TestMod {
             tileRegistryEvent.getRegistry().register(TileEntityType.Builder.create(PotatoGeneratorTile::new, ModBlocks.POTATOGENERATOR).build(null).setRegistryName("potato_generator"));
 
             LOGGER.info("Tile Entity Registering Yes");
+        }
+
+        @SubscribeEvent
+        public static void onContainerRegistry(final RegistryEvent.Register<ContainerType<?>> containerRegistryEvent) {
+            containerRegistryEvent.getRegistry().register(IForgeContainerType.create((windowId, inv, data) -> {
+                BlockPos pos = data.readBlockPos();
+                return new PotatoGeneratorContainer(windowId, TestMod.proxy.getClientWorld(), pos, inv, TestMod.proxy.getClientPlayer());  // clientside
+            }).setRegistryName("potato_generator"));
         }
     }
 }
