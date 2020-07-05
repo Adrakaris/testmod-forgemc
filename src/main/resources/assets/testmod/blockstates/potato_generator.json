@@ -1,10 +1,16 @@
 {
   "variants": {
-    "facing=north": {"model": "testmod:block/potato_generator"},
-    "facing=south": {"model": "testmod:block/potato_generator", "y":  180},
-    "facing=west": {"model": "testmod:block/potato_generator", "y":  270},
-    "facing=east": {"model": "testmod:block/potato_generator", "y":  90},
-    "facing=up": {"model": "testmod:block/potato_generator", "x":  -90},
-    "facing=down": {"model": "testmod:block/potato_generator", "x":  90}
+    "facing=north,powered=false": {"model": "testmod:block/potato_generator"},
+    "facing=south,powered=false": {"model": "testmod:block/potato_generator", "y":  180},
+    "facing=west,powered=false": {"model": "testmod:block/potato_generator", "y":  270},
+    "facing=east,powered=false": {"model": "testmod:block/potato_generator", "y":  90},
+    "facing=up,powered=false": {"model": "testmod:block/potato_generator", "x":  -90},
+    "facing=down,powered=false": {"model": "testmod:block/potato_generator", "x":  90},
+    "facing=north,powered=true": {"model": "testmod:block/potato_generator_powered"},
+    "facing=south,powered=true": {"model": "testmod:block/potato_generator_powered", "y":  180},
+    "facing=west,powered=true": {"model": "testmod:block/potato_generator_powered", "y":  270},
+    "facing=east,powered=true": {"model": "testmod:block/potato_generator_powered", "y":  90},
+    "facing=up,powered=true": {"model": "testmod:block/potato_generator_powered", "x":  -90},
+    "facing=down,powered=true": {"model": "testmod:block/potato_generator_powered", "x":  90}
   }
 }

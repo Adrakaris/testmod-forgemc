@@ -52,6 +52,11 @@ public class PotatoGenerator extends Block {
         return true;
     }
 
+    @Override
+    public int getLightValue(BlockState state) {
+        return state.get(BlockStateProperties.POWERED) ? 15 : super.getLightValue(state);  // only give off light of 15 if powered
+    }
+
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
@@ -61,7 +66,7 @@ public class PotatoGenerator extends Block {
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         super.fillStateContainer(builder);  // technically not needed since parent is empty
-        builder.add(BlockStateProperties.FACING);
+        builder.add(BlockStateProperties.FACING, BlockStateProperties.POWERED);
         // BlockStateProperties contains properties already used by vanilla minecraft
         // FACING is what direction the block is facing
     }

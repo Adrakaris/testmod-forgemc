@@ -2,6 +2,7 @@ package com.bocbin.testmod.blocks;
 
 import com.bocbin.testmod.Config;
 import com.bocbin.testmod.tools.CustomEnergyStorage;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -11,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.INBT;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
@@ -54,6 +56,9 @@ public class PotatoGeneratorTile extends TileEntity implements ITickableTileEnti
     // TickableTileEntity function which will activate twice every tick, once on client and once on server
     @Override
     public void tick() {
+        if (world.isRemote) {
+            return;  // skip if world is, uh, client i think
+        }
         // section to check if the tile entity exists or not
         /* assert world != null;
         if (world.isRemote) {
@@ -77,7 +82,9 @@ public class PotatoGeneratorTile extends TileEntity implements ITickableTileEnti
             });  // 20 RF/t, I suppose, maybe 40 for baked
             markDirty();
             counter--;
-        } else {
+        }
+
+        if (counter <= 0) {
             handler.ifPresent(h -> {
                 ItemStack stack = h.getStackInSlot(0);
                 if (stack.getItem() == Items.POTATO || stack.getItem() == Items.POISONOUS_POTATO || stack.getItem() == Items.BAKED_POTATO) {
@@ -86,6 +93,11 @@ public class PotatoGeneratorTile extends TileEntity implements ITickableTileEnti
                     markDirty();
                 }
             });
+        }
+
+        BlockState blockState = world.getBlockState(pos);
+        if (blockState.get(BlockStateProperties.POWERED) != counter > 0) {  // if the powered state is different from the one we want
+            world.setBlockState(pos, blockState.with(BlockStateProperties.POWERED, counter > 0), 3);  // flag three to communicate with client too
         }
 
         // to send power
