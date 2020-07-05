@@ -1,5 +1,6 @@
 package com.bocbin.testmod.blocks;
 
+import com.bocbin.testmod.Config;
 import com.bocbin.testmod.tools.CustomEnergyStorage;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -29,6 +30,8 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.bocbin.testmod.blocks.ModBlocks.POTATOGENERATOR_TILE;
 
@@ -67,21 +70,54 @@ public class PotatoGeneratorTile extends TileEntity implements ITickableTileEnti
                 });
                 // decision to generate more or less power
                 if (baked) {
-                    ((CustomEnergyStorage) e).addEnergy(40);
+                    ((CustomEnergyStorage) e).addEnergy(2 * Config.POTGEN_GENERATION.get());
                 } else {
-                    ((CustomEnergyStorage) e).addEnergy(20);
+                    ((CustomEnergyStorage) e).addEnergy(Config.POTGEN_GENERATION.get());
                 }
             });  // 20 RF/t, I suppose, maybe 40 for baked
+            markDirty();
             counter--;
         } else {
             handler.ifPresent(h -> {
                 ItemStack stack = h.getStackInSlot(0);
                 if (stack.getItem() == Items.POTATO || stack.getItem() == Items.POISONOUS_POTATO || stack.getItem() == Items.BAKED_POTATO) {
                     h.extractItem(0, 1, false);
-                    counter = 200;
+                    counter = Config.POTGEN_BURNTIME.get();
+                    markDirty();
                 }
             });
         }
+
+        // to send power
+        sendOutPower();
+    }
+
+    private void sendOutPower() {
+        energy.ifPresent(energy -> {
+            AtomicInteger capacity = new AtomicInteger(energy.getEnergyStored());  // atomicinteger is a way of being able to change a value whilst inside a lambda funciton
+            if (capacity.get() > 0) {
+                for (Direction direction : Direction.values()) {  // for every direction
+                    // check if block present that can use FE
+                    TileEntity te = world.getTileEntity(pos.offset(direction));
+                    if (te != null) {  // some extra stuff that checks whether or not to continue trying to push out energy
+                        boolean doContinue = te.getCapability(CapabilityEnergy.ENERGY, direction).map(handler -> {  // map handler as forth
+                            if (handler.canReceive()) {
+                                int received = handler.receiveEnergy(Math.min(capacity.get(), Config.POTGEN_TRANSFER_RATE.get()), false);  // extract a maximum of 2000 RF/t to a neighbouring machine
+                                capacity.addAndGet(-received);  // subtract actually received from capacity
+                                ((CustomEnergyStorage)energy).consumeEnergy(received);  //
+                                markDirty();
+                                return capacity.get() > 0;
+                            } else {
+                                return true;
+                            }
+                        }).orElse(true);  // if there is no handler return true, true means continue
+                        if (!doContinue) {
+                            return;
+                        }
+                    }
+                }
+            }
+        });
     }
 
     // read and write to save inventory
@@ -121,6 +157,11 @@ public class PotatoGeneratorTile extends TileEntity implements ITickableTileEnti
     private ItemStackHandler createHandler() {
         return new ItemStackHandler(1) {
             @Override
+            protected void onContentsChanged(int slot) {
+                markDirty();  // marks the tile entity so that system knows tile entity needs saving
+            }
+
+            @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
                 return stack.getItem() == Items.POTATO || stack.getItem() == Items.BAKED_POTATO || stack.getItem() == Items.POISONOUS_POTATO;
             }
@@ -137,7 +178,7 @@ public class PotatoGeneratorTile extends TileEntity implements ITickableTileEnti
     }
 
     private IEnergyStorage createEnergy() {
-        return new CustomEnergyStorage(200000, 0);
+        return new CustomEnergyStorage(Config.POTATO_GENERATOR_CAPACITY.get(), 0);
     }
 
     // we need capabilities to be able to us this as a generator
