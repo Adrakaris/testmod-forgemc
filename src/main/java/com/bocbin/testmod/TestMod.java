@@ -2,15 +2,15 @@ package com.bocbin.testmod;
 
 import com.bocbin.testmod.blocks.*;
 import com.bocbin.testmod.constructors.GloriousArmour;
-import com.bocbin.testmod.items.Borscht;
-import com.bocbin.testmod.items.GloriousFabric;
-import com.bocbin.testmod.items.HammerSickle;
-import com.bocbin.testmod.items.IngloriousFabric;
+import com.bocbin.testmod.entities.PotatoBlockEntity;
+import com.bocbin.testmod.items.*;
 import com.bocbin.testmod.setup.ClientProxy;
 import com.bocbin.testmod.setup.IProxy;
 import com.bocbin.testmod.setup.ModSetup;
 import com.bocbin.testmod.setup.ServerProxy;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
@@ -84,6 +84,7 @@ public class TestMod {
             itemRegistryEvent.getRegistry().register(new GloriousFabric());
             itemRegistryEvent.getRegistry().register(new IngloriousFabric());
             itemRegistryEvent.getRegistry().register(new Borscht());
+            itemRegistryEvent.getRegistry().register(new PotatoBlockEntityEggItem());
 
             // register new tools and stuff
             itemRegistryEvent.getRegistry().register(new HammerSickle());
@@ -113,6 +114,14 @@ public class TestMod {
                 BlockPos pos = data.readBlockPos();
                 return new PotatoGeneratorContainer(windowId, TestMod.proxy.getClientWorld(), pos, inv, TestMod.proxy.getClientPlayer());  // clientside
             }).setRegistryName("potato_generator"));
+        }
+
+        @SubscribeEvent
+        public static void onEntityRegistry(final RegistryEvent.Register<EntityType<?>> entityRegistryEvent) {
+            entityRegistryEvent.getRegistry().register(EntityType.Builder.create(PotatoBlockEntity::new, EntityClassification.CREATURE)
+                    .size(1, 1)  // size scaling
+                    .setShouldReceiveVelocityUpdates(false)  // mcjty is not sure what this does
+                    .build("potato_block_entity").setRegistryName(TestMod.MODID, "potato_block_entity"));
         }
     }
 }

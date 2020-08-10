@@ -12,6 +12,7 @@
   "item.testmod.glorious_chestplate": "Glorious Chestplate",
   "item.testmod.glorious_pants": "Glorious Pants",
   "item.testmod.glorious_boots": "Glorious Boots",
+  "item.testmod.potato_block_entity_egg": "Spawn Potato Thing",
 
   "_comment": "Creative Tabs",
   "itemGroup.testmod": "Test Mod Items"
