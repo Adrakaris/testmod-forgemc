@@ -1,6 +1,7 @@
 package hu.yijun.forgetestmodthree;
 
 import com.mojang.logging.LogUtils;
+import hu.yijun.forgetestmodthree.item.ModCreativeTabs;
 import hu.yijun.forgetestmodthree.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -15,7 +16,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/mods.toml file
+// cd kaupenjoe
+
 @Mod(ForgeTestModThree.MOD_ID)
 public class ForgeTestModThree {
     public static final String MOD_ID = "forgetestmodthree";
@@ -25,6 +27,7 @@ public class ForgeTestModThree {
         IEventBus eventBus = context.getModEventBus();
 
         ModItems.register(eventBus);
+        ModCreativeTabs.register(eventBus);
 
         eventBus.addListener(this::commonSetup);
 
@@ -39,6 +42,7 @@ public class ForgeTestModThree {
     private void addToCreativeModeTab(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.SAPPHIRE);
+            event.accept(ModItems.RAW_SAPPHIRE);
         }
     }
 
