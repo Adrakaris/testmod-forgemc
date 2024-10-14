@@ -1,6 +1,8 @@
 package hu.yijun.forgetestmodthree;
 
 import com.mojang.logging.LogUtils;
+import hu.yijun.forgetestmodthree.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -20,19 +22,24 @@ public class ForgeTestModThree {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public ForgeTestModThree(FMLJavaModLoadingContext context) {
-        IEventBus modEventBus = context.getModEventBus();
-        modEventBus.addListener(this::commonSetup);
+        IEventBus eventBus = context.getModEventBus();
 
+        ModItems.register(eventBus);
+
+        eventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
-        modEventBus.addListener(this::addCreative);
+
+        eventBus.addListener(this::addToCreativeModeTab);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
     }
 
-    // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+    private void addToCreativeModeTab(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.SAPPHIRE);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
