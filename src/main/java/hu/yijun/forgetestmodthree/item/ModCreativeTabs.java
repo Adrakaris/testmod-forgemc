@@ -1,5 +1,6 @@
 package hu.yijun.forgetestmodthree.item;
 
+import hu.yijun.forgetestmodthree.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -23,8 +24,13 @@ public class ModCreativeTabs {
                     .icon(() -> new ItemStack(ModItems.SAPPHIRE.get()))
                     .title(Component.translatable(MOD_ID + ".creativetab.test_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
+
                         output.accept(ModItems.SAPPHIRE.get());  // this sets the order of items in our creative tab
                         output.accept(ModItems.RAW_SAPPHIRE.get());
+
+                        output.accept(ModBlocks.SAPPHIRE_BLOCK.get());
+                        output.accept(ModBlocks.RAW_SAPPHIRE_BLOCK.get());
+
                     })
                     .build()
     );

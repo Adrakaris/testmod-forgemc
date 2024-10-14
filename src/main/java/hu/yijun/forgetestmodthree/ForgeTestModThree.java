@@ -1,6 +1,7 @@
 package hu.yijun.forgetestmodthree;
 
 import com.mojang.logging.LogUtils;
+import hu.yijun.forgetestmodthree.block.ModBlocks;
 import hu.yijun.forgetestmodthree.item.ModCreativeTabs;
 import hu.yijun.forgetestmodthree.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -27,6 +28,7 @@ public class ForgeTestModThree {
         IEventBus eventBus = context.getModEventBus();
 
         ModItems.register(eventBus);
+        ModBlocks.register(eventBus);
         ModCreativeTabs.register(eventBus);
 
         eventBus.addListener(this::commonSetup);

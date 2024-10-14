@@ -1,5 +1,9 @@
 {
+  "forgetestmodthree.creativetab.test_tab": "Test Mod",
+
   "item.forgetestmodthree.sapphire": "Sapphire",
   "item.forgetestmodthree.raw_sapphire": "Raw Sapphire",
-  "forgetestmodthree.creativetab.test_tab": "Test Mod"
+
+  "block.forgetestmodthree.sapphire_block": "Sapphire Block",
+  "block.forgetestmodthree.raw_sapphire_block": "Raw Sapphire Block"
 }
