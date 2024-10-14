@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 1.3,
+  "group": "sapphire",
+  "ingredient": {
+    "item": "forgetestmodthree:raw_sapphire"
+  },
+  "result": "forgetestmodthree:sapphire"
+}
