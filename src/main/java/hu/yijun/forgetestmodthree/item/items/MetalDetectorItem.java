@@ -16,10 +16,8 @@ public class MetalDetectorItem extends Item {
 
     private static final Block VALUABLE_BLOCK = Blocks.IRON_ORE;
 
-    public MetalDetectorItem() {
-        super(new Properties()
-                .defaultDurability(100)
-        );
+    public MetalDetectorItem(Item.Properties properties) {
+        super(properties);
     }
 
     @Override

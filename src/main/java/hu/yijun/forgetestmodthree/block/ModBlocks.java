@@ -1,6 +1,7 @@
 package hu.yijun.forgetestmodthree.block;
 
 import hu.yijun.forgetestmodthree.ForgeTestModThree;
+import hu.yijun.forgetestmodthree.block.blocks.SoundBlock;
 import hu.yijun.forgetestmodthree.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -49,6 +50,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> END_SAPPHIRE_ORE = registerBlock(
             "end_sapphire_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.END_STONE).strength(6f), UniformInt.of(3, 7))
+    );
+
+    public static final RegistryObject<Block> SOUND_BLOCK = registerBlock(
+            "sound_block",
+            () -> new SoundBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6f))
     );
 
 

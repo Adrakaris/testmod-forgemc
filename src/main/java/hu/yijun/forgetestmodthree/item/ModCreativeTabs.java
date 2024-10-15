@@ -37,6 +37,8 @@ public class ModCreativeTabs {
                         output.accept(DEEPSLATE_SAPPHIRE_ORE.get());
                         output.accept(NETHER_SAPPHIRE_ORE.get());
                         output.accept(END_SAPPHIRE_ORE.get());
+
+                        output.accept(SOUND_BLOCK.get());
                     })
                     .build()
     );
