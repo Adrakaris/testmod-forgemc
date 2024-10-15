@@ -5,5 +5,9 @@
   "item.forgetestmodthree.raw_sapphire": "Raw Sapphire",
 
   "block.forgetestmodthree.sapphire_block": "Sapphire Block",
-  "block.forgetestmodthree.raw_sapphire_block": "Raw Sapphire Block"
+  "block.forgetestmodthree.raw_sapphire_block": "Raw Sapphire Block",
+  "block.forgetestmodthree.sapphire_ore": "Sapphire Ore",
+  "block.forgetestmodthree.deepslate_sapphire_ore": "Deepslate Sapphire Ore",
+  "block.forgetestmodthree.nether_sapphire_ore": "Nether Sapphire Ore",
+  "block.forgetestmodthree.end_sapphire_ore": "End Sapphire Ore"
 }

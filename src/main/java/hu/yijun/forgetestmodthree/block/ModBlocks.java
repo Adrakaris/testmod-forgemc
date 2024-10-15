@@ -2,10 +2,12 @@ package hu.yijun.forgetestmodthree.block;
 
 import hu.yijun.forgetestmodthree.ForgeTestModThree;
 import hu.yijun.forgetestmodthree.item.ModItems;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -32,6 +34,23 @@ public class ModBlocks {
             "raw_sapphire_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK))
     );
+    public static final RegistryObject<Block> SAPPHIRE_ORE = registerBlock(
+            "sapphire_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE), UniformInt.of(3, 6))
+    );
+    public static final RegistryObject<Block> DEEPSLATE_SAPPHIRE_ORE = registerBlock(
+            "deepslate_sapphire_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_DIAMOND_ORE), UniformInt.of(3, 6))
+    );
+    public static final RegistryObject<Block> NETHER_SAPPHIRE_ORE = registerBlock(
+            "nether_sapphire_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.NETHERRACK).strength(3f), UniformInt.of(3, 7))
+    );
+    public static final RegistryObject<Block> END_SAPPHIRE_ORE = registerBlock(
+            "end_sapphire_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.END_STONE).strength(6f), UniformInt.of(3, 7))
+    );
+
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> blockSupplier) {
         RegistryObject<T> blockObject = BLOCKS.register(name, blockSupplier);
