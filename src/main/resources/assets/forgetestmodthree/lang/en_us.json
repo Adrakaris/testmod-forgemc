@@ -1,13 +1,14 @@
 {
-  "forgetestmodthree.creativetab.test_tab": "Test Mod",
-
   "item.forgetestmodthree.sapphire": "Sapphire",
   "item.forgetestmodthree.raw_sapphire": "Raw Sapphire",
+  "item.forgetestmodthree.metal_detector": "Metal Detector",
 
   "block.forgetestmodthree.sapphire_block": "Sapphire Block",
   "block.forgetestmodthree.raw_sapphire_block": "Raw Sapphire Block",
   "block.forgetestmodthree.sapphire_ore": "Sapphire Ore",
   "block.forgetestmodthree.deepslate_sapphire_ore": "Deepslate Sapphire Ore",
   "block.forgetestmodthree.nether_sapphire_ore": "Nether Sapphire Ore",
-  "block.forgetestmodthree.end_sapphire_ore": "End Sapphire Ore"
+  "block.forgetestmodthree.end_sapphire_ore": "End Sapphire Ore",
+
+  "forgetestmodthree.creativetab.test_tab": "Test Mod"
 }

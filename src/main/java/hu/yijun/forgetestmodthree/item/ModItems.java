@@ -1,6 +1,7 @@
 package hu.yijun.forgetestmodthree.item;
 
 import hu.yijun.forgetestmodthree.ForgeTestModThree;
+import hu.yijun.forgetestmodthree.item.items.MetalDetectorItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -18,5 +19,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RAW_SAPPHIRE = ITEMS.register("raw_sapphire", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> METAL_DETECTOR = ITEMS.register("metal_detector", MetalDetectorItem::new);
 
 }

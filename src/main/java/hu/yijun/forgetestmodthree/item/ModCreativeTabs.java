@@ -29,6 +29,8 @@ public class ModCreativeTabs {
                         output.accept(SAPPHIRE.get());  // this sets the order of items in our creative tab
                         output.accept(RAW_SAPPHIRE.get());
 
+                        output.accept(METAL_DETECTOR.get());
+
                         output.accept(SAPPHIRE_BLOCK.get());
                         output.accept(RAW_SAPPHIRE_BLOCK.get());
                         output.accept(SAPPHIRE_ORE.get());
