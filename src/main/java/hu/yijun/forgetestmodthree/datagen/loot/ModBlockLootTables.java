@@ -29,6 +29,16 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
         this.dropSelf(SAPPHIRE_BLOCK.get());  // drops itself when broken
+        this.dropSelf(SAPPHIRE_STAIRS.get());
+        this.dropSelf(SAPPHIRE_BUTTON.get());
+        this.dropSelf(SAPPHIRE_PRESSURE_PLATE.get());
+        this.dropSelf(SAPPHIRE_TRAPDOOR.get());
+        this.dropSelf(SAPPHIRE_FENCE.get());
+        this.dropSelf(SAPPHIRE_FENCE_GATE.get());
+        this.dropSelf(SAPPHIRE_WALL.get());
+        this.add(SAPPHIRE_SLAB.get(), block -> createSlabItemTable(SAPPHIRE_SLAB.get()));  // slabs and doors have different drop than one per block
+        this.add(SAPPHIRE_DOOR.get(), block -> createDoorTable(SAPPHIRE_DOOR.get()));
+
         this.dropSelf(RAW_SAPPHIRE_BLOCK.get());
         this.dropSelf(SOUND_BLOCK.get());
 

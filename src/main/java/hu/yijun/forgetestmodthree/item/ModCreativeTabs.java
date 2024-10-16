@@ -34,6 +34,16 @@ public class ModCreativeTabs {
                         output.accept(PINE_CONE.get());
 
                         output.accept(SAPPHIRE_BLOCK.get());
+                        output.accept(SAPPHIRE_STAIRS.get());
+                        output.accept(SAPPHIRE_SLAB.get());
+                        output.accept(SAPPHIRE_BUTTON.get());
+                        output.accept(SAPPHIRE_PRESSURE_PLATE.get());
+                        output.accept(SAPPHIRE_TRAPDOOR.get());
+                        output.accept(SAPPHIRE_FENCE.get());
+                        output.accept(SAPPHIRE_FENCE_GATE.get());
+                        output.accept(SAPPHIRE_WALL.get());
+                        output.accept(SAPPHIRE_DOOR.get());
+
                         output.accept(RAW_SAPPHIRE_BLOCK.get());
                         output.accept(SAPPHIRE_ORE.get());
                         output.accept(DEEPSLATE_SAPPHIRE_ORE.get());

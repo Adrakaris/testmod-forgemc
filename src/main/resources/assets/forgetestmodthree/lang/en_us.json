@@ -6,7 +6,18 @@
   "item.forgetestmodthree.pine_cone": "Pine Cone",
 
   "block.forgetestmodthree.sapphire_block": "Sapphire Block",
+  "block.forgetestmodthree.sapphire_stairs": "Sapphire Stairs",
+  "block.forgetestmodthree.sapphire_slab": "Sapphire Slab",
+  "block.forgetestmodthree.sapphire_button": "Sapphire Button",
+  "block.forgetestmodthree.sapphire_pressure_plate": "Sapphire Pressure Plate",
+  "block.forgetestmodthree.sapphire_fence": "Sapphire Fence",
+  "block.forgetestmodthree.sapphire_fence_gate": "Sapphire Fence Gate",
+  "block.forgetestmodthree.sapphire_door": "Sapphire Door",
+  "block.forgetestmodthree.sapphire_wall": "Sapphire Wall",
+  "block.forgetestmodthree.sapphire_trapdoor": "Sapphire Trapdoor",
+
   "block.forgetestmodthree.raw_sapphire_block": "Raw Sapphire Block",
+
   "block.forgetestmodthree.sapphire_ore": "Sapphire Ore",
   "block.forgetestmodthree.deepslate_sapphire_ore": "Deepslate Sapphire Ore",
   "block.forgetestmodthree.nether_sapphire_ore": "Nether Sapphire Ore",
