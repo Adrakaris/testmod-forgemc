@@ -2,6 +2,7 @@
   "item.forgetestmodthree.sapphire": "Sapphire",
   "item.forgetestmodthree.raw_sapphire": "Raw Sapphire",
   "item.forgetestmodthree.metal_detector": "Metal Detector",
+  "item.forgetestmodthree.strawberry": "Strawberry",
 
   "block.forgetestmodthree.sapphire_block": "Sapphire Block",
   "block.forgetestmodthree.raw_sapphire_block": "Raw Sapphire Block",
@@ -11,7 +12,6 @@
   "block.forgetestmodthree.end_sapphire_ore": "End Sapphire Ore",
 
   "block.forgetestmodthree.sound_block": "Sound Block",
-  "block.forgetestmodthree.strawberry": "Strawberry",
 
   "forgetestmodthree.creativetab.test_tab": "Test Mod"
 }

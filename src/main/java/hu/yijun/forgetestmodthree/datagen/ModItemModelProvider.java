@@ -21,6 +21,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         // seems to return a builder but does nothing, mysterious...
         configureSimpleItem(SAPPHIRE);
+        configureSimpleItem(RAW_SAPPHIRE);
         configureSimpleItem(METAL_DETECTOR);
         configureSimpleItem(STRAWBERRY);
     }
