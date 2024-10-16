@@ -24,6 +24,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         configureSimpleItem(RAW_SAPPHIRE);
         configureSimpleItem(METAL_DETECTOR);
         configureSimpleItem(STRAWBERRY);
+        configureSimpleItem(PINE_CONE);
     }
 
     private ItemModelBuilder configureSimpleItem(RegistryObject<Item> itemObject) {

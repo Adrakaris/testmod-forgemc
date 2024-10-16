@@ -3,6 +3,7 @@
   "item.forgetestmodthree.raw_sapphire": "Raw Sapphire",
   "item.forgetestmodthree.metal_detector": "Metal Detector",
   "item.forgetestmodthree.strawberry": "Strawberry",
+  "item.forgetestmodthree.pine_cone": "Pine Cone",
 
   "block.forgetestmodthree.sapphire_block": "Sapphire Block",
   "block.forgetestmodthree.raw_sapphire_block": "Raw Sapphire Block",
@@ -13,5 +14,6 @@
 
   "block.forgetestmodthree.sound_block": "Sound Block",
 
+  "tooltip.forgetestmodthree.metal_detector": "Looks straight down for valuable ores",
   "forgetestmodthree.creativetab.test_tab": "Test Mod"
 }
