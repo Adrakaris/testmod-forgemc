@@ -25,12 +25,13 @@ public class ModBlocks {
         BLOCKS.register(eventBus);
     }
 
+    // TODO: breaking doesnt work on the variants somehow idk
     // sapphire and all variants
     public static final RegistryObject<Block> SAPPHIRE_BLOCK = registerBlock("sapphire_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK).sound(SoundType.AMETHYST)));
-    public static final RegistryObject<Block> SAPPHIRE_STAIRS = registerBlock("sapphire_stairs", () -> new StairBlock(() -> SAPPHIRE_BLOCK.get().defaultBlockState(), BlockBehaviour.Properties.copy(SAPPHIRE_BLOCK.get())));
+    public static final RegistryObject<Block> SAPPHIRE_STAIRS = registerBlock("sapphire_stairs", () -> new StairBlock(() -> SAPPHIRE_BLOCK.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK).sound(SoundType.AMETHYST)));
     public static final RegistryObject<Block> SAPPHIRE_SLAB = registerBlock("sapphire_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK).sound(SoundType.AMETHYST)));
     public static final RegistryObject<Block> SAPPHIRE_BUTTON = registerBlock("sapphire_button", () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BUTTON), BlockSetType.IRON, 10, false));
-    public static final RegistryObject<Block> SAPPHIRE_PRESSURE_PLATE = registerBlock("sapphire_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK).sound(SoundType.AMETHYST), BlockSetType.IRON));
+    public static final RegistryObject<Block> SAPPHIRE_PRESSURE_PLATE = registerBlock("sapphire_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK).sound(SoundType.AMETHYST), BlockSetType.STONE));
     public static final RegistryObject<Block> SAPPHIRE_FENCE = registerBlock("sapphire_fence", () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK).sound(SoundType.AMETHYST)));
     public static final RegistryObject<Block> SAPPHIRE_FENCE_GATE = registerBlock("sapphire_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK).sound(SoundType.AMETHYST), SoundEvents.CHAIN_BREAK, SoundEvents.ANVIL_BREAK));
     public static final RegistryObject<Block> SAPPHIRE_WALL = registerBlock("sapphire_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK).sound(SoundType.AMETHYST)));
