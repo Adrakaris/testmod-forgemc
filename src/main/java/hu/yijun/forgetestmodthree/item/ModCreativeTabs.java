@@ -32,6 +32,7 @@ public class ModCreativeTabs {
                         output.accept(METAL_DETECTOR.get());
                         output.accept(STRAWBERRY.get());
                         output.accept(PINE_CONE.get());
+                        output.accept(SAPPHIRE_STAFF.get());
 
                         output.accept(SAPPHIRE_BLOCK.get());
                         output.accept(SAPPHIRE_STAIRS.get());
