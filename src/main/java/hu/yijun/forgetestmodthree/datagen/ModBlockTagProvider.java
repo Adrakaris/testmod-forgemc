@@ -12,7 +12,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static hu.yijun.forgetestmodthree.block.ModBlocks.*;
@@ -20,7 +19,7 @@ import static hu.yijun.forgetestmodthree.block.ModBlocks.*;
 public class ModBlockTagProvider extends BlockTagsProvider {
 
     private static final Block[] SAPPHIRE_ORES = new Block[]{SAPPHIRE_ORE.get(), DEEPSLATE_SAPPHIRE_ORE.get(), NETHER_SAPPHIRE_ORE.get(), END_SAPPHIRE_ORE.get()};
-    private static final Block[] SAPPHIRE_BLOCK_VARIANTS = new Block[]{SAPPHIRE_SLAB.get(), SAPPHIRE_STAIRS.get(), SAPPHIRE_DOOR.get(), SAPPHIRE_TRAPDOOR.get(), SAPPHIRE_BUTTON.get(), SAPPHIRE_TRAPDOOR.get(), SAPPHIRE_FENCE.get(), SAPPHIRE_FENCE_GATE.get(), SAPPHIRE_WALL.get()};
+    private static final Block[] SAPPHIRE_BLOCK_VARIANTS = new Block[]{SAPPHIRE_SLAB.get(), SAPPHIRE_STAIRS.get(), SAPPHIRE_DOOR.get(), SAPPHIRE_TRAPDOOR.get(), SAPPHIRE_BUTTON.get(), SAPPHIRE_PRESSURE_PLATE.get(), SAPPHIRE_FENCE.get(), SAPPHIRE_FENCE_GATE.get(), SAPPHIRE_WALL.get()};
 
     public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, ForgeTestModThree.MOD_ID, existingFileHelper);

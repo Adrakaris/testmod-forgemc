@@ -6,6 +6,15 @@
     "forgetestmodthree:end_sapphire_ore",
     "forgetestmodthree:sapphire_block",
     "forgetestmodthree:raw_sapphire_block",
-    "forgetestmodthree:sound_block"
+    "forgetestmodthree:sound_block",
+    "forgetestmodthree:sapphire_slab",
+    "forgetestmodthree:sapphire_stairs",
+    "forgetestmodthree:sapphire_door",
+    "forgetestmodthree:sapphire_trapdoor",
+    "forgetestmodthree:sapphire_button",
+    "forgetestmodthree:sapphire_pressure_plate",
+    "forgetestmodthree:sapphire_fence",
+    "forgetestmodthree:sapphire_fence_gate",
+    "forgetestmodthree:sapphire_wall"
   ]
 }
