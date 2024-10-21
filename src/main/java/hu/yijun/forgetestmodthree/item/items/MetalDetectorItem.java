@@ -21,8 +21,8 @@ import java.util.List;
 
 public class MetalDetectorItem extends Item {
 
-    public MetalDetectorItem(Item.Properties properties) {
-        super(properties);
+    public MetalDetectorItem() {
+        super(new Item.Properties().defaultDurability(100));
     }
 
     @Override
