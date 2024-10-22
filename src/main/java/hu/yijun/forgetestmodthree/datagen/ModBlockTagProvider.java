@@ -34,6 +34,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(NETHER_SAPPHIRE_ORE.get());
         this.tag(Tags.Blocks.NEEDS_NETHERITE_TOOL)
                 .add(END_SAPPHIRE_ORE.get());
+        this.tag(ModTags.Blocks.NEEDS_SAPPHIRE_TOOL)
+                .add(SOUND_BLOCK.get());  // bhig
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(SAPPHIRE_ORES)

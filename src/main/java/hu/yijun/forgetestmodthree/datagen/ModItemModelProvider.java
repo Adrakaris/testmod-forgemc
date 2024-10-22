@@ -11,8 +11,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import static hu.yijun.forgetestmodthree.item.ModItems.*;
 import static hu.yijun.forgetestmodthree.block.ModBlocks.*;
+import static hu.yijun.forgetestmodthree.item.ModItems.*;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -28,6 +28,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(STRAWBERRY);
         simpleItem(PINE_CONE);
 
+        handheldToolItem(SAPPHIRE_SWORD);
+        handheldToolItem(SAPPHIRE_PICKAXE);
+        handheldToolItem(SAPPHIRE_AXE);
+        handheldToolItem(SAPPHIRE_SHOVEL);
+        handheldToolItem(SAPPHIRE_HOE);
+
         blockWithSeparateItem(SAPPHIRE_DOOR);
         fenceItem(SAPPHIRE_FENCE, SAPPHIRE_BLOCK);
         buttonItem(SAPPHIRE_BUTTON, SAPPHIRE_BLOCK);
@@ -41,21 +47,25 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> itemObject) {
         return withExistingParent(
-                    itemObject.getId().getPath(),
-                    new ResourceLocation("item/generated")
+                    itemObject.getId().getPath(), new ResourceLocation("item/generated")
         ).texture(
-                "layer0",
-                new ResourceLocation(ForgeTestModThree.MOD_ID, "item/%s".formatted(itemObject.getId().getPath()))
+                "layer0", new ResourceLocation(ForgeTestModThree.MOD_ID, "item/%s".formatted(itemObject.getId().getPath()))
+        );
+    }
+
+    private ItemModelBuilder handheldToolItem(RegistryObject<Item> itemObject) {
+        return withExistingParent(
+                itemObject.getId().getPath(), new ResourceLocation("item/handheld")
+        ).texture(
+                "layer0", new ResourceLocation(ForgeTestModThree.MOD_ID, "item/" + itemObject.getId().getPath())
         );
     }
 
     private ItemModelBuilder blockWithSeparateItem(RegistryObject<Block> blockToItem) {
         return withExistingParent(
-                blockToItem.getId().getPath(),
-                new ResourceLocation("item/generated")
+                blockToItem.getId().getPath(), new ResourceLocation("item/generated")
         ).texture(
-                "layer0",
-                new ResourceLocation(ForgeTestModThree.MOD_ID, "item/" + blockToItem.getId().getPath())
+                "layer0", new ResourceLocation(ForgeTestModThree.MOD_ID, "item/" + blockToItem.getId().getPath())
         );
     }
 
@@ -71,25 +81,21 @@ public class ModItemModelProvider extends ItemModelProvider {
     private void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
         withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
                 .texture("texture", new ResourceLocation(ForgeTestModThree.MOD_ID, "block/" + baseBlock.getId().getPath()));
-//                .texture("texture", new ResourceLocation(ForgeTestModThree.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get())).getPath());
     }
     private void buttonItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
         withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/button_inventory"))
                 .texture("texture", new ResourceLocation(ForgeTestModThree.MOD_ID, "block/" + baseBlock.getId().getPath()));
-//                .texture("texture", new ResourceLocation(ForgeTestModThree.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get())).getPath());
     }
 
     private void wallItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
         withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/wall_inventory"))
                 .texture("wall", new ResourceLocation(ForgeTestModThree.MOD_ID, "block/" + baseBlock.getId().getPath()));
-//                .texture("wall", new ResourceLocation(ForgeTestModThree.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get())).getPath());
     }
 
     private void trapdoorItem(RegistryObject<Block> block) {
         withExistingParent(
                 ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
                 modLoc("block/" + block.getId().getPath() + "_bottom")
-//                modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath() + "_bottom")
         );
     }
 
