@@ -1,6 +1,7 @@
 package hu.yijun.forgetestmodthree.item;
 
 import hu.yijun.forgetestmodthree.ForgeTestModThree;
+import hu.yijun.forgetestmodthree.item.items.ApplyingEffectArmourItem;
 import hu.yijun.forgetestmodthree.item.items.FuelItem;
 import hu.yijun.forgetestmodthree.item.items.MetalDetectorItem;
 import hu.yijun.forgetestmodthree.item.items.SapphireStaffItem;
@@ -32,7 +33,7 @@ public class ModItems {
     public static final RegistryObject<Item> SAPPHIRE_SHOVEL = ITEMS.register("sapphire_shovel", () -> new ShovelItem(ModToolTiers.SAPPHIRE, 3, 1.1f-4, new Item.Properties()));
     public static final RegistryObject<Item> SAPPHIRE_HOE = ITEMS.register("sapphire_hoe", () -> new HoeItem(ModToolTiers.SAPPHIRE, 5, 3f-4, new Item.Properties()));
 
-    public static final RegistryObject<Item> SAPPHIRE_HELMET = ITEMS.register("sapphire_helmet", () -> new ArmorItem(ModArmourMaterials.SAPPHIRE, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> SAPPHIRE_HELMET = ITEMS.register("sapphire_helmet", () -> new ApplyingEffectArmourItem(ModArmourMaterials.SAPPHIRE, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> SAPPHIRE_CHESTPLATE = ITEMS.register("sapphire_chestplate", () -> new ArmorItem(ModArmourMaterials.SAPPHIRE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> SAPPHIRE_LEGGINGS = ITEMS.register("sapphire_leggings", () -> new ArmorItem(ModArmourMaterials.SAPPHIRE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> SAPPHIRE_BOOTS = ITEMS.register("sapphire_boots", () -> new ArmorItem(ModArmourMaterials.SAPPHIRE, ArmorItem.Type.BOOTS, new Item.Properties()));
